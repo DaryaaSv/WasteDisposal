@@ -1,24 +1,23 @@
 package lt.viko.eif.p121e.wastedisposal.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
-@Entity
-@Table(name = "tbl_customers")
+@Entity(tableName = "tbl_customers")
 public class Customer {
-    @Id
-    @Column(name = "customer_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "customer_id")
     private int id;
+    @ColumnInfo(name = "name")
     private String name;
-    @Column(name = "phone_number")
+    @ColumnInfo(name = "phone_number")
     private String phoneNumber;
+    @ColumnInfo(name = "email")
     private String email;
+    @ColumnInfo(name = "username")
     private String username;
+    @ColumnInfo(name = "password")
     private String password;
 
     public Customer(String name, String phoneNumber, String email, String username, String password) {
