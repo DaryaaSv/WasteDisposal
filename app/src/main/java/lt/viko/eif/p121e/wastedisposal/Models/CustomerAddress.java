@@ -1,31 +1,26 @@
 package lt.viko.eif.p121e.wastedisposal.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
 
-@Entity
-@Table(name = "tbl_customer_address")
+@Entity(tableName = "tbl_customer_address", foreignKeys = {
+        @ForeignKey(entity = Customer.class, parentColumns = "customer_id", childColumns = "customer_id"),
+        @ForeignKey(entity = Address.class, parentColumns = "address_id", childColumns = "address_id")
+})
 public class CustomerAddress {
-    @Id
-    @Column(name = "customer_address_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "customer_address_id")
     private int id;
-    @OneToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
-    @OneToOne
-    @JoinColumn(name = "address_id")
-    private Address address;
+    @ColumnInfo(name = "customer_id")
+    private int customerId;
+    @ColumnInfo(name = "address_id")
+    private int addressId;
 
-    public CustomerAddress(Customer customer, Address address) {
-        this.customer = customer;
-        this.address = address;
+    public CustomerAddress(int customerId, int addressId) {
+        this.customerId = customerId;
+        this.addressId = addressId;
     }
 
     public int getId() {
@@ -36,19 +31,19 @@ public class CustomerAddress {
         this.id = id;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
-    public Address getAddress() {
-        return address;
+    public int getAddressId() {
+        return addressId;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setAddressId(int addressId) {
+        this.addressId = addressId;
     }
 }
