@@ -1,0 +1,90 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp"
+    tools:context=".Activities.LogInActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        app:srcCompat="@drawable/img_icons8recycle" />
+
+    <TextView
+        android:id="@+id/textViewSettings2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="58dp"
+        android:layout_marginEnd="58dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="REC/CL"
+        android:textAlignment="center"
+        android:textColor="#5DAE75"
+        android:textSize="55dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:layout_below="@id/textViewSettings2"
+        android:id="@+id/editTextUsername"
+        android:layout_width="match_parent"
+        android:paddingBottom="20dp"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:paddingBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextUsername"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+    <CheckBox
+        android:id="@+id/checkBoxShowPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextPassword"
+        android:text="Show Password" />
+
+    <Button
+        android:id="@+id/buttonSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/checkBoxShowPassword"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#5DAF75"
+        android:text="Log In"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/textViewSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonSignUp"
+        android:layout_marginTop="25dp"
+        android:text="Don't have an account yet? Sign Up"
+        android:textAlignment="center"
+        android:textColor="#5DAE75"
+        android:textSize="22dp" />
+
+    <TextView
+        android:id="@+id/textViewForgotPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewSignUp"
+        android:layout_marginTop="15dp"
+        android:text="Forgot Password?"
+        android:textAlignment="center"
+        android:textColor="#5DAE75"
+        android:textSize="25dp" />
+
+</RelativeLayout>
