@@ -1,22 +1,19 @@
 package lt.viko.eif.p121e.wastedisposal.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
-@Entity
-@Table(name = "tbl_milestones")
+@Entity(tableName = "tbl_milestones")
 public class Milestone {
-    @Id
-    @Column(name = "milestone_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "milestone_id")
     private int id;
+    @ColumnInfo(name = "condition")
     private String condition;
-    @Column(name = "milestone_code")
+    @ColumnInfo(name = "milestone_code")
     private String milestoneCode;
+    @ColumnInfo(name = "description")
     private String description;
 
     public Milestone(String condition, String milestoneCode, String description) {
