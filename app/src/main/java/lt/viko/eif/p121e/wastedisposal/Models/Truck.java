@@ -1,40 +1,41 @@
 package lt.viko.eif.p121e.wastedisposal.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
 
-@Entity
-@Table(name = "tbl_trucks")
+@Entity(tableName = "tbl_trucks", foreignKeys = {
+        @ForeignKey(entity = BranchAddress.class, parentColumns = "branch_id", childColumns = "branch_id")
+})
 public class Truck {
-    @Id
-    @Column(name = "truck_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "truck_id")
     private int id;
+    @ColumnInfo(name = "name")
     private String name;
-    private String Model;
+    @ColumnInfo(name = "model")
+    private String model;
+    @ColumnInfo(name = "license_plate")
     private String licensePlate;
+    @ColumnInfo(name = "capacity")
     private float capacity;
+    @ColumnInfo(name = "status")
     private String status;
+    @ColumnInfo(name = "coordinates")
     private String coordinates;
-    @ManyToOne
-    @JoinColumn(name = "branch_id")
-    private BranchAddress branch;
+    @ColumnInfo(name = "branch_id")
+    private int branchId;
 
     public Truck(String name, String model, String licensePlate, float capacity, String status,
-                 String coordinates, BranchAddress branch) {
+                 String coordinates, int branchId) {
         this.name = name;
-        Model = model;
+        this.model = model;
         this.licensePlate = licensePlate;
         this.capacity = capacity;
         this.status = status;
         this.coordinates = coordinates;
-        this.branch = branch;
+        this.branchId = branchId;
     }
 
     public int getId() {
@@ -53,13 +54,6 @@ public class Truck {
         this.name = name;
     }
 
-    public String getModel() {
-        return Model;
-    }
-
-    public void setModel(String model) {
-        Model = model;
-    }
 
     public String getLicensePlate() {
         return licensePlate;
@@ -93,11 +87,19 @@ public class Truck {
         this.coordinates = coordinates;
     }
 
-    public BranchAddress getBranch() {
-        return branch;
+    public String getModel() {
+        return model;
     }
 
-    public void setBranch(BranchAddress branch) {
-        this.branch = branch;
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public int getBranchId() {
+        return branchId;
+    }
+
+    public void setBranchId(int branchId) {
+        this.branchId = branchId;
     }
 }

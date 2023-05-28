@@ -1,31 +1,27 @@
 package lt.viko.eif.p121e.wastedisposal.Models;
 
-import javax.persistence.JoinColumn;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name = "tbl_phones")
+@Entity(tableName = "tbl_phones", foreignKeys = {
+        @ForeignKey(entity = BranchAddress.class, parentColumns = "branch_id", childColumns = "branch_id")
+})
 public class Phone {
-    @Id
-    @Column(name = "phone_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "phone_id")
     private int id;
-    @Column(name = "phone_number")
-    private String phoneNumber;
-    @ManyToOne
-    @JoinColumn(name = "branch_id")
-    private BranchAddress branch;
 
-    public Phone(String phoneNumber, BranchAddress branch) {
+    @ColumnInfo(name = "phone_number")
+    private String phoneNumber;
+
+    @ColumnInfo(name = "branch_id")
+    private int branchId;
+
+    public Phone(String phoneNumber, int branchId) {
         this.phoneNumber = phoneNumber;
-        this.branch = branch;
+        this.branchId = branchId;
     }
 
     public int getId() {
@@ -44,11 +40,11 @@ public class Phone {
         this.phoneNumber = phoneNumber;
     }
 
-    public BranchAddress getBranch() {
-        return branch;
+    public int getBranchId() {
+        return branchId;
     }
 
-    public void setBranch(BranchAddress branch) {
-        this.branch = branch;
+    public void setBranchId(int branchId) {
+        this.branchId = branchId;
     }
 }

@@ -1,32 +1,29 @@
 package lt.viko.eif.p121e.wastedisposal.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
 
-@Entity
-@Table(name = "tbl_services")
+@Entity(tableName = "tbl_services", foreignKeys = {
+        @ForeignKey(entity = Order.class, parentColumns = "order_id", childColumns = "order_id"),
+        @ForeignKey(entity = WasteCollection.class, parentColumns = "waste_collection_id",
+                childColumns = "waste_collection_id")
+})
 public class Service {
-    @Id
-    @Column(name = "service_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "service_id")
     private int id;
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
-    @OneToMany
-    @JoinColumn(name = "waste_collection_id")
-    private WasteCollection wasteCollection;
 
-    public Service(Order order, WasteCollection wasteCollection) {
-        this.order = order;
-        this.wasteCollection = wasteCollection;
+    @ColumnInfo(name = "order_id")
+    private int orderId;
+
+    @ColumnInfo(name = "waste_collection_id")
+    private int wasteCollectionId;
+
+    public Service(int orderId, int wasteCollectionId) {
+        this.orderId = orderId;
+        this.wasteCollectionId = wasteCollectionId;
     }
 
     public int getId() {
@@ -37,19 +34,19 @@ public class Service {
         this.id = id;
     }
 
-    public Order getOrder() {
-        return order;
+    public int getOrderId() {
+        return orderId;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 
-    public WasteCollection getWasteCollection() {
-        return wasteCollection;
+    public int getWasteCollectionId() {
+        return wasteCollectionId;
     }
 
-    public void setWasteCollection(WasteCollection wasteCollection) {
-        this.wasteCollection = wasteCollection;
+    public void setWasteCollectionId(int wasteCollectionId) {
+        this.wasteCollectionId = wasteCollectionId;
     }
 }
