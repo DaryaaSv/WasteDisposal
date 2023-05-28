@@ -1,13 +1,15 @@
-package lt.viko.eif.p121e.wastedisposal;
+package lt.viko.eif.p121e.wastedisposal.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import lt.viko.eif.p121e.wastedisposal.R;
+
+public class LogInActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.log_in_main);
     }
 }
