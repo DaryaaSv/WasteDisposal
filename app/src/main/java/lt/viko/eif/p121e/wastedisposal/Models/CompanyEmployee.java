@@ -1,31 +1,28 @@
 package lt.viko.eif.p121e.wastedisposal.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
 
-@Entity
-@Table(name = "tbl_company_employees")
+@Entity(tableName = "tbl_company_employees", foreignKeys = {
+        @ForeignKey(entity = Company.class, parentColumns = "companyID", childColumns = "companyID"),
+        @ForeignKey(entity = Employee.class, parentColumns = "employeeID", childColumns = "employeeID")
+})
 public class CompanyEmployee {
-    @Id
-    @Column(name = "company_employee_ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "company_employee_ID")
     private int id;
-    @ManyToOne
-    @JoinColumn(name = "companyID")
-    private Company company;
-    @ManyToOne
-    @JoinColumn(name = "employeeID")
-    private Employee employee;
 
-    public CompanyEmployee(Company company, Employee employee) {
-        this.company = company;
-        this.employee = employee;
+    @ColumnInfo(name = "companyID")
+    private int companyId;
+
+    @ColumnInfo(name = "employeeID")
+    private int employeeId;
+
+    public CompanyEmployee(int companyId, int employeeId) {
+        this.companyId = companyId;
+        this.employeeId = employeeId;
     }
 
     public int getId() {
@@ -36,19 +33,19 @@ public class CompanyEmployee {
         this.id = id;
     }
 
-    public Company getCompany() {
-        return company;
+    public int getCompanyId() {
+        return companyId;
     }
 
-    public void setCompany(Company company) {
-        this.company = company;
+    public void setCompanyId(int companyId) {
+        this.companyId = companyId;
     }
 
-    public Employee getEmployee() {
-        return employee;
+    public int getEmployeeId() {
+        return employeeId;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
     }
 }
