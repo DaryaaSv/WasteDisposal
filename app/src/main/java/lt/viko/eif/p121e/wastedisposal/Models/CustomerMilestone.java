@@ -1,31 +1,30 @@
 package lt.viko.eif.p121e.wastedisposal.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
 
-@Entity
-@Table(name = "tbl_customers_milestones")
+@Entity(tableName = "tbl_customers_milestones", foreignKeys = {
+        @ForeignKey(entity = Milestone.class, parentColumns = "milestone_id", childColumns = "milestone_id"),
+        @ForeignKey(entity = Customer.class, parentColumns = "customer_id", childColumns = "customer_id"),
+        @ForeignKey(entity = Order.class, parentColumns = "order_id", childColumns = "order_id")
+})
 public class CustomerMilestone {
-    @Column(name = "customer_milestone_id")
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "customer_milestone_id")
     private int id;
-    @ManyToOne
-    @JoinColumn(name = "milestone_id")
-    private Milestone milestone;
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
-    @OneToMany
-    @JoinColumn(name = "order_id")
-    private Order order;
+    @ColumnInfo(name = "milestone_id")
+    private int milestoneId;
+    @ColumnInfo(name = "customer_id")
+    private int customerId;
+    @ColumnInfo(name = "order_id")
+    private int orderId;
 
-    public CustomerMilestone(Milestone milestone, Customer customer, Order order) {
-        this.milestone = milestone;
-        this.customer = customer;
-        this.order = order;
+    public CustomerMilestone(int milestoneId, int customerId, int orderId) {
+        this.milestoneId = milestoneId;
+        this.customerId = customerId;
+        this.orderId = orderId;
     }
 
     public int getId() {
@@ -36,27 +35,27 @@ public class CustomerMilestone {
         this.id = id;
     }
 
-    public Milestone getMilestone() {
-        return milestone;
+    public int getMilestoneId() {
+        return milestoneId;
     }
 
-    public void setMilestone(Milestone milestone) {
-        this.milestone = milestone;
+    public void setMilestoneId(int milestoneId) {
+        this.milestoneId = milestoneId;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
-    public Order getOrder() {
-        return order;
+    public int getOrderId() {
+        return orderId;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 }

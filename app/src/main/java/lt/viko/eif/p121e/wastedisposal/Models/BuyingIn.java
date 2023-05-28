@@ -1,48 +1,41 @@
 package lt.viko.eif.p121e.wastedisposal.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 import lt.viko.eif.p121e.wastedisposal.Models.Enums.BuyingInType;
 import lt.viko.eif.p121e.wastedisposal.Models.Enums.DeliveryType;
+import lt.viko.eif.p121e.wastedisposal.Util.Converters.BuyingInTypeConverter;
+import lt.viko.eif.p121e.wastedisposal.Util.Converters.DeliveryTypeConverter;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
 
-@Entity
-@Table(name = "tbl_buying_in")
+@Entity(tableName = "tbl_buying_in")
 public class BuyingIn {
-    @Id
-    @Column(name = "buying_in_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "buying_in_id")
     private int id;
     private String name;
     private float price;
     private String measurement;
     private String description;
-    @Column(name = "delivery_type")
-    @Enumerated(EnumType.STRING)
+    @ColumnInfo(name = "delivery_type")
+    @TypeConverters(DeliveryTypeConverter.class)
     private DeliveryType deliveryType;
-    @Column(name = "type")
-    @Enumerated(EnumType.STRING)
+    @ColumnInfo(name = "type")
+    @TypeConverters(BuyingInTypeConverter.class)
     private BuyingInType type;
-    @ManyToOne
-    @JoinColumn(name = "branch_id")
-    private BranchAddress branch;
+    @ColumnInfo(name = "branch_id")
+    private int branchId;
 
     public BuyingIn(String name, float price, String measurement, String description,
-                    DeliveryType deliveryType, BuyingInType type, BranchAddress branch) {
+                    DeliveryType deliveryType, BuyingInType type, int branchId) {
         this.name = name;
         this.price = price;
         this.measurement = measurement;
         this.description = description;
         this.deliveryType = deliveryType;
         this.type = type;
-        this.branch = branch;
+        this.branchId = branchId;
     }
 
     public int getId() {
@@ -101,11 +94,4 @@ public class BuyingIn {
         this.type = type;
     }
 
-    public BranchAddress getBranch() {
-        return branch;
-    }
-
-    public void setBranch(BranchAddress branch) {
-        this.branch = branch;
-    }
 }

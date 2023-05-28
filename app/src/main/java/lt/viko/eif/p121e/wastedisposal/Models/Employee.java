@@ -1,26 +1,25 @@
 package lt.viko.eif.p121e.wastedisposal.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lt.viko.eif.p121e.wastedisposal.Models.Enums.Position;
+import lt.viko.eif.p121e.wastedisposal.Util.Converters.PositionConverter;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
 
-@Entity
-@Table(name = "tbl_employees")
+@Entity(tableName = "tbl_employees")
 public class Employee {
-    @Id
-    @Column(name = "employee_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "employee_id")
     private int id;
+    @ColumnInfo(name = "username")
     private String username;
+    @ColumnInfo(name = "password")
     private String password;
+    @ColumnInfo(name = "name")
     private String name;
-    @Enumerated(EnumType.STRING)
+    @ColumnInfo(name = "position")
+    @TypeConverters(PositionConverter.class)
     private Position position;
 
     public Employee(String username, String password, String name, Position position) {

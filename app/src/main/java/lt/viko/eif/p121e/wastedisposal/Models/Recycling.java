@@ -1,39 +1,35 @@
 package lt.viko.eif.p121e.wastedisposal.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-import lt.viko.eif.p121e.wastedisposal.Models.Enums.ContainerContentType;
 import lt.viko.eif.p121e.wastedisposal.Models.Enums.RecyclingType;
+import lt.viko.eif.p121e.wastedisposal.Util.Converters.RecyclingTypeConverter;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
 
-@Entity
-@Table(name = "tbl_recycling")
+@Entity(tableName = "tbl_recycling", foreignKeys = {
+        @ForeignKey(entity = BranchAddress.class, parentColumns = "branch_id", childColumns = "branch_id")
+})
 public class Recycling {
-    @Id
-    @Column(name = "recycling_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "recycling_id")
     private int id;
+    @ColumnInfo(name = "name")
     private String name;
-    @Column(name = "recycling_type")
-    @Enumerated(EnumType.STRING)
+    @ColumnInfo(name = "recycling_type")
+    @TypeConverters(RecyclingTypeConverter.class)
     private RecyclingType recyclingType;
+    @ColumnInfo(name = "description")
     private String description;
-    @ManyToOne
-    @JoinColumn(name = "branch_id")
-    private BranchAddress branch;
+    @ColumnInfo(name = "branch_id")
+    private int branchId;
 
-    public Recycling(String name, RecyclingType recyclingType, String description, BranchAddress branch) {
+    public Recycling(String name, RecyclingType recyclingType, String description, int branchId) {
         this.name = name;
         this.recyclingType = recyclingType;
         this.description = description;
-        this.branch = branch;
+        this.branchId = branchId;
     }
 
     public int getId() {
@@ -68,11 +64,11 @@ public class Recycling {
         this.description = description;
     }
 
-    public BranchAddress getBranch() {
-        return branch;
+    public int getBranchId() {
+        return branchId;
     }
 
-    public void setBranch(BranchAddress branch) {
-        this.branch = branch;
+    public void setBranchId(int branchId) {
+        this.branchId = branchId;
     }
 }
