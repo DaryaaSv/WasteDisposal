@@ -44,7 +44,7 @@
         android:fontFamily="sans-serif-medium"
         android:paddingTop="10dp"
         android:paddingBottom="5dp"
-        android:text="Buying-In"
+        android:text="Orders"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="30dp"
@@ -105,7 +105,7 @@
         android:layout_marginTop="650dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="0dp"
-        app:srcCompat="@drawable/img_companybuy1" />
+        app:srcCompat="@drawable/img_company1" />
 
     <ImageView
         android:id="@+id/imageViewButtonRecycle"
@@ -119,7 +119,7 @@
         android:layout_marginTop="650dp"
         android:layout_marginEnd="300dp"
         android:layout_marginBottom="0dp"
-        app:srcCompat="@drawable/img_recycle1" />
+        app:srcCompat="@drawable/img_orders21" />
 
     <Button
         android:id="@+id/indicator"
@@ -128,9 +128,9 @@
         android:layout_alignTop="@+id/imageViewButtonRecycle"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="317dp"
+        android:layout_marginStart="67dp"
         android:layout_marginTop="-10dp"
-        android:layout_marginEnd="67dp"
+        android:layout_marginEnd="317dp"
         android:backgroundTint="#5DAD75" />
 
 </RelativeLayout>

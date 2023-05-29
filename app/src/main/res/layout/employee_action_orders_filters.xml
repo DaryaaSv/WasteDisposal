@@ -6,32 +6,6 @@
     android:padding="0dp"
     tools:context=".Activities.LogInActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="173dp"
-        android:layout_height="686dp"
-        android:layout_above="@+id/indicator"
-        android:layout_below="@+id/editTextUsername9"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="25dp" />
-
-    <EditText
-        android:id="@+id/editTextUsername9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewSettings3"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:hint="Search"
-        android:inputType="text"
-        android:paddingBottom="20dp" />
-
     <TextView
         android:id="@+id/textViewSettings3"
         android:layout_width="match_parent"
@@ -44,7 +18,7 @@
         android:fontFamily="sans-serif-medium"
         android:paddingTop="10dp"
         android:paddingBottom="5dp"
-        android:text="Buying-In"
+        android:text="Filters"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="30dp"
@@ -64,20 +38,15 @@
         android:layout_marginBottom="10dp"
         android:backgroundTint="#C4C4C4" />
 
-    <TextView
-        android:id="@+id/textViewLogout"
-        android:layout_width="87dp"
-        android:layout_height="46dp"
+    <ImageView
+        android:id="@+id/imageViewButtonReturn2"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center"
-        android:text="Filters"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="16dp" />
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/img_close_black_900" />
 
     <ImageView
         android:id="@+id/imageViewButtonProfile"
@@ -105,7 +74,7 @@
         android:layout_marginTop="650dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="0dp"
-        app:srcCompat="@drawable/img_companybuy1" />
+        app:srcCompat="@drawable/img_company1" />
 
     <ImageView
         android:id="@+id/imageViewButtonRecycle"
@@ -119,7 +88,7 @@
         android:layout_marginTop="650dp"
         android:layout_marginEnd="300dp"
         android:layout_marginBottom="0dp"
-        app:srcCompat="@drawable/img_recycle1" />
+        app:srcCompat="@drawable/img_orders21" />
 
     <Button
         android:id="@+id/indicator"
@@ -128,9 +97,22 @@
         android:layout_alignTop="@+id/imageViewButtonRecycle"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="317dp"
+        android:layout_marginStart="67dp"
         android:layout_marginTop="-10dp"
-        android:layout_marginEnd="67dp"
+        android:layout_marginEnd="317dp"
         android:backgroundTint="#5DAD75" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewSettings3"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="15dp"
+        android:text="Complete"
+        android:textSize="20dp" />
 
 </RelativeLayout>

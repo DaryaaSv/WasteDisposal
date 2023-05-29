@@ -64,16 +64,6 @@
         android:layout_marginBottom="10dp"
         android:backgroundTint="#C4C4C4" />
 
-    <ImageView
-        android:id="@+id/imageViewButtonReturn2"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        app:srcCompat="@drawable/img_close_black_900" />
-
     <TextView
         android:id="@+id/textViewLogout"
         android:layout_width="87dp"
