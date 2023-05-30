@@ -13,7 +13,7 @@
         android:theme="@style/Theme.WasteDisposal"
         tools:targetApi="31" >
         <activity
-            android:name=".Activities.LogInActivity"
+            android:name=".Activities.SignUpActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

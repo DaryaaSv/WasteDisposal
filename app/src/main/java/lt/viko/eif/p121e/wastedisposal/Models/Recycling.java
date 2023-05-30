@@ -1,15 +1,15 @@
 package lt.viko.eif.p121e.wastedisposal.Models;
 
-import lt.viko.eif.p121e.wastedisposal.Models.Enums.RecyclingType;
-import lt.viko.eif.p121e.wastedisposal.Util.Converters.RecyclingTypeConverter;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
-import androidx.room.TypeConverters;
 
 @Entity(tableName = "tbl_recycling", foreignKeys = {
-        @ForeignKey(entity = BranchAddress.class, parentColumns = "branch_id", childColumns = "branch_id")
+        @ForeignKey(entity = MaterialType.class, parentColumns = "material_type_id",
+                childColumns = "material_type_id", onDelete = ForeignKey.CASCADE),
+        @ForeignKey(entity = Material.class, parentColumns = "material_id",
+                childColumns = "material_id", onDelete = ForeignKey.CASCADE),
 })
 public class Recycling {
     @PrimaryKey(autoGenerate = true)
@@ -17,19 +17,21 @@ public class Recycling {
     private int id;
     @ColumnInfo(name = "name")
     private String name;
-    @ColumnInfo(name = "recycling_type")
-    @TypeConverters(RecyclingTypeConverter.class)
-    private RecyclingType recyclingType;
     @ColumnInfo(name = "description")
     private String description;
-    @ColumnInfo(name = "branch_id")
-    private int branchId;
+    @ColumnInfo(name = "amount")
+    private float amount;
+    @ColumnInfo(name = "material_id")
+    private int materialId;
+    @ColumnInfo(name = "material_type_id")
+    private int materialTypeId;
 
-    public Recycling(String name, RecyclingType recyclingType, String description, int branchId) {
+    public Recycling(String name, String description, float amount, int materialId, int materialTypeId) {
         this.name = name;
-        this.recyclingType = recyclingType;
         this.description = description;
-        this.branchId = branchId;
+        this.amount = amount;
+        this.materialId = materialId;
+        this.materialTypeId = materialTypeId;
     }
 
     public int getId() {
@@ -48,14 +50,6 @@ public class Recycling {
         this.name = name;
     }
 
-    public RecyclingType getRecyclingType() {
-        return recyclingType;
-    }
-
-    public void setRecyclingType(RecyclingType recyclingType) {
-        this.recyclingType = recyclingType;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -64,11 +58,27 @@ public class Recycling {
         this.description = description;
     }
 
-    public int getBranchId() {
-        return branchId;
+    public float getAmount() {
+        return amount;
     }
 
-    public void setBranchId(int branchId) {
-        this.branchId = branchId;
+    public void setAmount(float amount) {
+        this.amount = amount;
+    }
+
+    public int getMaterialId() {
+        return materialId;
+    }
+
+    public void setMaterialId(int materialId) {
+        this.materialId = materialId;
+    }
+
+    public int getMaterialTypeId() {
+        return materialTypeId;
+    }
+
+    public void setMaterialTypeId(int materialTypeId) {
+        this.materialTypeId = materialTypeId;
     }
 }
