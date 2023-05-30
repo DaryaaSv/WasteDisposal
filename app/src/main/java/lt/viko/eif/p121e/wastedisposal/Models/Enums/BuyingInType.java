@@ -6,7 +6,6 @@ public enum BuyingInType {
     ACQUISITION("Acquisition");
 
     private final String displayName;
-
     BuyingInType(String displayName) {
         this.displayName = displayName;
     }
