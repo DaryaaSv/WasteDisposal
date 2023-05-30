@@ -6,118 +6,81 @@
     android:padding="0dp"
     tools:context=".Activities.LogInActivity">
 
+    <TextView
+        android:id="@+id/textViewSettings16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/indicator6"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:fontFamily="sans-serif-medium"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp"
+        android:text="Solids"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        android:textStyle="bold" />
+
     <Button
-        android:id="@+id/buttonMilestones5"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/editTextUsername7"
+        android:id="@+id/indicator7"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_below="@+id/textViewSettings11"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="5dp"
-        android:backgroundTint="#5DAD75"
-        android:text="Add / Change Address"
-        android:textSize="15dp"
-        app:iconTint="#5DAD75" />
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:backgroundTint="#C4C4C4" />
 
-    <EditText
-        android:id="@+id/editTextUsername2"
-        android:layout_width="286dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/textViewSettings2"
+    <Button
+        android:id="@+id/indicator5"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_below="@+id/textViewSettings9"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="5dp"
-        android:hint="Country"
-        android:inputType="text"
-        android:paddingBottom="20dp" />
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:backgroundTint="#C4C4C4" />
 
-    <EditText
-        android:id="@+id/editTextUsername3"
-        android:layout_width="286dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/editTextUsername2"
+    <Button
+        android:id="@+id/indicator6"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_below="@+id/textViewSettings10"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="5dp"
-        android:hint="Region"
-        android:inputType="text"
-        android:paddingBottom="20dp" />
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:backgroundTint="#C4C4C4" />
 
-    <EditText
-        android:id="@+id/editTextUsername5"
-        android:layout_width="286dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/editTextUsername3"
+    <TextView
+        android:id="@+id/textViewSettings12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewSettings11"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="5dp"
-        android:hint="City"
-        android:inputType="text"
-        android:paddingBottom="20dp" />
-
-    <EditText
-        android:id="@+id/editTextUsername6"
-        android:layout_width="286dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/editTextUsername5"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="5dp"
-        android:hint="ZIP Code"
-        android:inputType="text"
-        android:paddingBottom="20dp" />
-
-    <EditText
-        android:id="@+id/editTextUsername4"
-        android:layout_width="286dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/editTextUsername6"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="5dp"
-        android:hint="Street Name"
-        android:inputType="text"
-        android:paddingBottom="20dp" />
-
-    <EditText
-        android:id="@+id/editTextUsername7"
-        android:layout_width="286dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/editTextUsername4"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="5dp"
-        android:hint="Street Number"
-        android:inputType="text"
-        android:paddingBottom="20dp" />
-
-    <EditText
-        android:id="@+id/editTextUsername8"
-        android:layout_width="286dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/editTextUsername7"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="5dp"
-        android:hint="Apartment Number"
-        android:inputType="text"
-        android:paddingBottom="20dp" />
+        android:layout_gravity="center"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="250dp"
+        android:fontFamily="sans-serif-medium"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp"
+        android:text="Amount:"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/indicator2"
@@ -145,7 +108,7 @@
         android:fontFamily="sans-serif-medium"
         android:paddingTop="10dp"
         android:paddingBottom="5dp"
-        android:text="Address"
+        android:text="Order No. #"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="30dp"
@@ -214,5 +177,23 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         app:srcCompat="@drawable/img_close_black_900" />
+
+    <ScrollView
+        android:layout_width="146dp"
+        android:layout_height="663dp"
+        android:layout_below="@+id/textViewSettings2"
+        android:layout_alignBottom="@+id/indicator2"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
 
 </RelativeLayout>

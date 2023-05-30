@@ -6,32 +6,17 @@
     android:padding="0dp"
     tools:context=".Activities.LogInActivity">
 
-    <Button
-        android:id="@+id/buttonMilestones5"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/editTextUsername7"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="5dp"
-        android:backgroundTint="#5DAD75"
-        android:text="Add / Change Address"
-        android:textSize="15dp"
-        app:iconTint="#5DAD75" />
-
     <EditText
         android:id="@+id/editTextUsername2"
         android:layout_width="286dp"
         android:layout_height="50dp"
         android:layout_below="@+id/textViewSettings2"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
         android:layout_marginStart="5dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="5dp"
-        android:hint="Country"
+        android:layout_marginEnd="05dp"
+        android:layout_toStartOf="@+id/buttonMilestones"
+        android:hint="Name"
         android:inputType="text"
         android:paddingBottom="20dp" />
 
@@ -41,81 +26,11 @@
         android:layout_height="50dp"
         android:layout_below="@+id/editTextUsername2"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
         android:layout_marginStart="5dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="5dp"
-        android:hint="Region"
-        android:inputType="text"
-        android:paddingBottom="20dp" />
-
-    <EditText
-        android:id="@+id/editTextUsername5"
-        android:layout_width="286dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/editTextUsername3"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="5dp"
-        android:hint="City"
-        android:inputType="text"
-        android:paddingBottom="20dp" />
-
-    <EditText
-        android:id="@+id/editTextUsername6"
-        android:layout_width="286dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/editTextUsername5"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="5dp"
-        android:hint="ZIP Code"
-        android:inputType="text"
-        android:paddingBottom="20dp" />
-
-    <EditText
-        android:id="@+id/editTextUsername4"
-        android:layout_width="286dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/editTextUsername6"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="5dp"
-        android:hint="Street Name"
-        android:inputType="text"
-        android:paddingBottom="20dp" />
-
-    <EditText
-        android:id="@+id/editTextUsername7"
-        android:layout_width="286dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/editTextUsername4"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="5dp"
-        android:hint="Street Number"
-        android:inputType="text"
-        android:paddingBottom="20dp" />
-
-    <EditText
-        android:id="@+id/editTextUsername8"
-        android:layout_width="286dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/editTextUsername7"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="5dp"
-        android:hint="Apartment Number"
+        android:layout_toStartOf="@+id/buttonMilestones2"
+        android:hint="Password"
         android:inputType="text"
         android:paddingBottom="20dp" />
 
@@ -145,11 +60,37 @@
         android:fontFamily="sans-serif-medium"
         android:paddingTop="10dp"
         android:paddingBottom="5dp"
-        android:text="Address"
+        android:text="Settings"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="30dp"
         android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/buttonMilestones"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/textViewSettings2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="5dp"
+        android:backgroundTint="#5DAD75"
+        android:text="Change"
+        android:textSize="15dp"
+        app:iconTint="#5DAD75" />
+
+    <Button
+        android:id="@+id/buttonMilestones2"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/buttonMilestones"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="5dp"
+        android:backgroundTint="#5DAD75"
+        android:text="Change"
+        android:textSize="15dp"
+        app:iconTint="#5DAD75" />
 
     <ImageView
         android:id="@+id/imageViewButtonProfile"
@@ -177,7 +118,7 @@
         android:layout_marginTop="650dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="0dp"
-        app:srcCompat="@drawable/img_companybuy1" />
+        app:srcCompat="@drawable/img_company1" />
 
     <ImageView
         android:id="@+id/imageViewButtonRecycle"
@@ -191,7 +132,7 @@
         android:layout_marginTop="650dp"
         android:layout_marginEnd="300dp"
         android:layout_marginBottom="0dp"
-        app:srcCompat="@drawable/img_recycle1" />
+        app:srcCompat="@drawable/img_orders21" />
 
     <Button
         android:id="@+id/indicator"

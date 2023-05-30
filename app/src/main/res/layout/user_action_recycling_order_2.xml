@@ -1,0 +1,160 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="0dp"
+    tools:context=".Activities.LogInActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="173dp"
+        android:layout_height="686dp"
+        android:layout_above="@+id/buttonSignUp2"
+        android:layout_below="@+id/textViewUsernameMail3"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp" />
+
+    <TextView
+        android:id="@+id/textViewUsernameMail3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextUsername11"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:text="Containers Closest To You"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/editTextUsername11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewSettings3"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:hint="Search"
+        android:inputType="text"
+        android:paddingBottom="20dp" />
+
+    <Button
+        android:id="@+id/buttonSignUp2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignBottom="@+id/indicator2"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="#5DAF75"
+        android:text="Next"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/textViewSettings3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:background="#5DAE75"
+        android:fontFamily="sans-serif-medium"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp"
+        android:text="Container Delivery"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/indicator2"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_above="@+id/indicator"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="630dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#C4C4C4" />
+
+    <ImageView
+        android:id="@+id/imageViewButtonReturn2"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/img_close_black_900" />
+
+    <ImageView
+        android:id="@+id/imageViewButtonProfile"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="165dp"
+        android:layout_marginTop="650dp"
+        android:layout_marginEnd="165dp"
+        android:layout_marginBottom="0dp"
+        app:srcCompat="@drawable/img_avatar1" />
+
+    <ImageView
+        android:id="@+id/imageViewButtonBuyingIn"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="650dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="0dp"
+        app:srcCompat="@drawable/img_companybuy1" />
+
+    <ImageView
+        android:id="@+id/imageViewButtonRecycle"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="650dp"
+        android:layout_marginEnd="300dp"
+        android:layout_marginBottom="0dp"
+        app:srcCompat="@drawable/img_recycle1" />
+
+    <Button
+        android:id="@+id/indicator"
+        android:layout_width="49dp"
+        android:layout_height="15dp"
+        android:layout_alignTop="@+id/imageViewButtonRecycle"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="-10dp"
+        android:layout_marginEnd="317dp"
+        android:backgroundTint="#5DAD75" />
+
+</RelativeLayout>
