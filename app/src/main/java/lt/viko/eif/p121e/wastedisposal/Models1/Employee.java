@@ -1,6 +1,6 @@
 package lt.viko.eif.p121e.wastedisposal.Models1;
 
-import lt.viko.eif.p121e.wastedisposal.Models.Enums.Position;
+import lt.viko.eif.p121e.wastedisposal.Models1.Enums.Position;
 import lt.viko.eif.p121e.wastedisposal.Util.Converters.PositionConverter;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;

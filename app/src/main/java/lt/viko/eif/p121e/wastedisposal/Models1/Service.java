@@ -5,7 +5,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
-import lt.viko.eif.p121e.wastedisposal.Models.Enums.ServiceType;
+import lt.viko.eif.p121e.wastedisposal.Models1.Enums.ServiceType;
 import lt.viko.eif.p121e.wastedisposal.Util.Converters.ServiceTypeConverter;
 
 @Entity(tableName = "tbl_service")
