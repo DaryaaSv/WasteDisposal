@@ -1,13 +1,10 @@
-package lt.viko.eif.p121e.wastedisposal.Models;
+package lt.viko.eif.p121e.wastedisposal.Models1;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "tbl_trucks", foreignKeys = {
-        @ForeignKey(entity = BranchAddress.class, parentColumns = "branch_id", childColumns = "branch_id")
-})
+@Entity(tableName = "tbl_trucks")
 public class Truck {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "truck_id")
@@ -24,18 +21,15 @@ public class Truck {
     private String status;
     @ColumnInfo(name = "coordinates")
     private String coordinates;
-    @ColumnInfo(name = "branch_id")
-    private int branchId;
 
     public Truck(String name, String model, String licensePlate, float capacity, String status,
-                 String coordinates, int branchId) {
+                 String coordinates) {
         this.name = name;
         this.model = model;
         this.licensePlate = licensePlate;
         this.capacity = capacity;
         this.status = status;
         this.coordinates = coordinates;
-        this.branchId = branchId;
     }
 
     public int getId() {
@@ -95,11 +89,4 @@ public class Truck {
         this.model = model;
     }
 
-    public int getBranchId() {
-        return branchId;
-    }
-
-    public void setBranchId(int branchId) {
-        this.branchId = branchId;
-    }
 }

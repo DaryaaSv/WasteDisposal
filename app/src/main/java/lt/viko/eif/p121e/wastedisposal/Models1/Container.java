@@ -1,4 +1,4 @@
-package lt.viko.eif.p121e.wastedisposal.Models;
+package lt.viko.eif.p121e.wastedisposal.Models1;
 
 import lt.viko.eif.p121e.wastedisposal.Models.Enums.ContainerContentType;
 import lt.viko.eif.p121e.wastedisposal.Models.Enums.ContainerType;
@@ -6,19 +6,14 @@ import lt.viko.eif.p121e.wastedisposal.Util.Converters.ContainerContentTypeConve
 import lt.viko.eif.p121e.wastedisposal.Util.Converters.ContainerTypeConverter;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
-@Entity(tableName = "tbl_containers", foreignKeys = {
-        @ForeignKey(entity = BranchAddress.class, parentColumns = "branch_id", childColumns = "branch_id")
-})
+@Entity(tableName = "tbl_containers")
 public class Container {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "container_id")
     private int id;
-    @ColumnInfo(name = "branch_id")
-    private int branchId;
     @ColumnInfo(name = "street")
     private String street;
     @ColumnInfo(name = "house_number")
@@ -34,9 +29,8 @@ public class Container {
     @ColumnInfo(name = "content_type")
     private ContainerContentType contentType;
 
-    public Container(int branchId, String street, String houseNumber, String zipCode, float capacity,
+    public Container(String street, String houseNumber, String zipCode, float capacity,
                      ContainerType type, ContainerContentType contentType) {
-        this.branchId = branchId;
         this.street = street;
         this.houseNumber = houseNumber;
         this.zipCode = zipCode;
@@ -51,14 +45,6 @@ public class Container {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getBranchId() {
-        return branchId;
-    }
-
-    public void setBranchId(int branchId) {
-        this.branchId = branchId;
     }
 
     public String getStreet() {
