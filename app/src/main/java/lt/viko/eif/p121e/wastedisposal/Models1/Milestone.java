@@ -1,4 +1,4 @@
-package lt.viko.eif.p121e.wastedisposal.Models;
+package lt.viko.eif.p121e.wastedisposal.Models1;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
