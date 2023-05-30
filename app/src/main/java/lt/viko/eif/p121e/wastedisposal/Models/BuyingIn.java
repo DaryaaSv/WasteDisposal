@@ -1,41 +1,46 @@
 package lt.viko.eif.p121e.wastedisposal.Models;
 
-import lt.viko.eif.p121e.wastedisposal.Models.Enums.BuyingInType;
-import lt.viko.eif.p121e.wastedisposal.Models.Enums.DeliveryType;
-import lt.viko.eif.p121e.wastedisposal.Util.Converters.BuyingInTypeConverter;
-import lt.viko.eif.p121e.wastedisposal.Util.Converters.DeliveryTypeConverter;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
-import androidx.room.TypeConverters;
 
-@Entity(tableName = "tbl_buying_in")
+@Entity(tableName = "tbl_buying_in", foreignKeys = {
+        @ForeignKey(entity = Order.class, parentColumns = "order_id", childColumns = "order_id"),
+        @ForeignKey(entity = Material.class, parentColumns = "material_id", childColumns = "material_id"),
+        @ForeignKey(entity = MaterialType.class, parentColumns = "material_type_id", childColumns = "material_type_id")
+})
 public class BuyingIn {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "buying_in_id")
     private int id;
+    @ColumnInfo(name = "name")
     private String name;
+    @ColumnInfo(name = "price")
     private float price;
+    @ColumnInfo(name = "measurement")
     private String measurement;
+    @ColumnInfo(name = "amount")
+    private float amount;
+    @ColumnInfo(name = "description")
     private String description;
-    @ColumnInfo(name = "delivery_type")
-    @TypeConverters(DeliveryTypeConverter.class)
-    private DeliveryType deliveryType;
-    @ColumnInfo(name = "type")
-    @TypeConverters(BuyingInTypeConverter.class)
-    private BuyingInType type;
-    @ColumnInfo(name = "branch_id")
-    private int branchId;
+    @ColumnInfo(name = "order_id")
+    private int orderId;
+    @ColumnInfo(name = "material_id")
+    private int materialId;
+    @ColumnInfo(name = "material_type_id")
+    private int materialTypeId;
 
-    public BuyingIn(String name, float price, String measurement, String description,
-                    DeliveryType deliveryType, BuyingInType type, int branchId) {
+    public BuyingIn(String name, float price, String measurement, float amount, String description,
+                    int orderId, int materialId, int materialTypeId) {
         this.name = name;
         this.price = price;
         this.measurement = measurement;
+        this.amount = amount;
         this.description = description;
-        this.deliveryType = deliveryType;
-        this.type = type;
-        this.branchId = branchId;
+        this.orderId = orderId;
+        this.materialId = materialId;
+        this.materialTypeId = materialTypeId;
     }
 
     public int getId() {
@@ -70,6 +75,14 @@ public class BuyingIn {
         this.measurement = measurement;
     }
 
+    public float getAmount() {
+        return amount;
+    }
+
+    public void setAmount(float amount) {
+        this.amount = amount;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -78,20 +91,27 @@ public class BuyingIn {
         this.description = description;
     }
 
-    public DeliveryType getDeliveryType() {
-        return deliveryType;
+    public int getOrderId() {
+        return orderId;
     }
 
-    public void setDeliveryType(DeliveryType deliveryType) {
-        this.deliveryType = deliveryType;
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 
-    public BuyingInType getType() {
-        return type;
+    public int getMaterialId() {
+        return materialId;
     }
 
-    public void setType(BuyingInType type) {
-        this.type = type;
+    public void setMaterialId(int materialId) {
+        this.materialId = materialId;
     }
 
+    public int getMaterialTypeId() {
+        return materialTypeId;
+    }
+
+    public void setMaterialTypeId(int materialTypeId) {
+        this.materialTypeId = materialTypeId;
+    }
 }
