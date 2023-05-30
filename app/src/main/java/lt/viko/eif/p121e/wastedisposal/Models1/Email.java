@@ -1,4 +1,4 @@
-package lt.viko.eif.p121e.wastedisposal.Models;
+package lt.viko.eif.p121e.wastedisposal.Models1;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -6,21 +6,20 @@ import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "tbl_emails", foreignKeys = {
-        @ForeignKey(entity = BranchAddress.class, parentColumns = "branch_id", childColumns = "branch_id")
+        @ForeignKey(entity = Branch.class, parentColumns = "branch_id",
+                childColumns = "branch_id", onDelete = ForeignKey.CASCADE)
 })
 public class Email {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "email_id")
     private int id;
-
-    @ColumnInfo(name = "email_address")
-    private String emailAddress;
-
+    @ColumnInfo(name = "email")
+    private String email;
     @ColumnInfo(name = "branch_id")
     private int branchId;
 
-    public Email(String emailAddress, int branchId) {
-        this.emailAddress = emailAddress;
+    public Email(String email, int branchId) {
+        this.email = email;
         this.branchId = branchId;
     }
 
@@ -33,11 +32,11 @@ public class Email {
     }
 
     public String getEmailAddress() {
-        return emailAddress;
+        return email;
     }
 
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
+    public void setEmailAddress(String email) {
+        this.email = email;
     }
 
     public int getBranchId() {

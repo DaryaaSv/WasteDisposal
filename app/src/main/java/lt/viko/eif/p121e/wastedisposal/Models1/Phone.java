@@ -1,4 +1,4 @@
-package lt.viko.eif.p121e.wastedisposal.Models;
+package lt.viko.eif.p121e.wastedisposal.Models1;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -6,19 +6,17 @@ import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "tbl_phones", foreignKeys = {
-        @ForeignKey(entity = BranchAddress.class, parentColumns = "branch_id", childColumns = "branch_id")
+        @ForeignKey(entity = Branch.class, parentColumns = "branch_id", childColumns = "branch_id",
+                onDelete = ForeignKey.CASCADE)
 })
 public class Phone {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "phone_id")
     private int id;
-
     @ColumnInfo(name = "phone_number")
     private String phoneNumber;
-
     @ColumnInfo(name = "branch_id")
     private int branchId;
-
     public Phone(String phoneNumber, int branchId) {
         this.phoneNumber = phoneNumber;
         this.branchId = branchId;
