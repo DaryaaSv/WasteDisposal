@@ -1,27 +1,25 @@
 package lt.viko.eif.p121e.wastedisposal.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
-@Entity
-@Table(name = "tbl_addresses")
+@Entity(tableName = "tbl_addresses")
 public class Address {
-    @Id
-    @Column(name = "address_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "address_id")
     private int id;
+    @ColumnInfo(name = "country")
     private String country;
+    @ColumnInfo(name = "region")
     private String region;
+    @ColumnInfo(name = "city")
     private String city;
-    @Column(name = "zip_code")
+    @ColumnInfo(name = "zip_code")
     private String zipCode;
-    @Column(name = "street_name")
+    @ColumnInfo(name = "street_name")
     private String streetName;
-    @Column(name = "street_number")
+    @ColumnInfo(name = "street_number")
     private String streetNumber;
 
     public Address(String country, String region, String city, String zipCode, String streetName, String streetNumber) {

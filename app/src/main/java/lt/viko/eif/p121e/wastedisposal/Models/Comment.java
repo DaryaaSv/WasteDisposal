@@ -1,30 +1,28 @@
 package lt.viko.eif.p121e.wastedisposal.Models;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
 import java.util.Date;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 
-@Entity
-@Table(name = "tbl_comments")
+@Entity(tableName = "tbl_comments", foreignKeys = @ForeignKey(entity = BranchAddress.class,
+        parentColumns = "branch_id",
+        childColumns = "branch_id",
+        onDelete = ForeignKey.CASCADE))
 public class Comment {
-    @Id
-    @Column(name = "comment_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "comment_id")
     private int id;
-    @ManyToOne
-    @JoinColumn(name = "branch_id")
-    private BranchAddress branch;
+    @ColumnInfo(name = "branch_id")
+    private int branchId;
+    @ColumnInfo(name = "text")
     private String text;
+    @ColumnInfo(name = "date")
     private Date date;
 
-    public Comment(BranchAddress branch, String text, Date date) {
-        this.branch = branch;
+    public Comment(int branchId, String text, Date date) {
+        this.branchId = branchId;
         this.text = text;
         this.date = date;
     }
@@ -37,12 +35,12 @@ public class Comment {
         this.id = id;
     }
 
-    public BranchAddress getBranch() {
-        return branch;
+    public int getBranchId() {
+        return branchId;
     }
 
-    public void setBranch(BranchAddress branch) {
-        this.branch = branch;
+    public void setBranchId(int branchId) {
+        this.branchId = branchId;
     }
 
     public String getText() {

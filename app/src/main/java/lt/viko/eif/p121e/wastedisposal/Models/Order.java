@@ -1,35 +1,34 @@
 package lt.viko.eif.p121e.wastedisposal.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
 
-@Entity
-@Table(name = "tbl_orders")
+@Entity(tableName = "tbl_orders", foreignKeys = {
+        @ForeignKey(entity = Customer.class, parentColumns = "customer_id", childColumns = "customer_id"),
+        @ForeignKey(entity = BranchAddress.class, parentColumns = "branch_id", childColumns = "branch_id")
+})
 public class Order {
-    @Id
-    @Column(name = "order_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "order_id")
     private int id;
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
-    @ManyToOne
-    @JoinColumn(name = "branch_id")
-    private BranchAddress branch;
-    @Column(name = "is_done")
+
+    @ColumnInfo(name = "customer_id")
+    private int customerId;
+
+    @ColumnInfo(name = "branch_id")
+    private int branchId;
+
+    @ColumnInfo(name = "is_done")
     private boolean isDone;
-    @Column(name = "customer_note")
+
+    @ColumnInfo(name = "customer_note")
     private String customerNote;
 
-    public Order(Customer customer, BranchAddress branch, boolean isDone, String customerNote) {
-        this.customer = customer;
-        this.branch = branch;
+    public Order(int customerId, int branchId, boolean isDone, String customerNote) {
+        this.customerId = customerId;
+        this.branchId = branchId;
         this.isDone = isDone;
         this.customerNote = customerNote;
     }
@@ -42,20 +41,20 @@ public class Order {
         this.id = id;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
-    public BranchAddress getBranch() {
-        return branch;
+    public int getBranchId() {
+        return branchId;
     }
 
-    public void setBranch(BranchAddress branch) {
-        this.branch = branch;
+    public void setBranchId(int branchId) {
+        this.branchId = branchId;
     }
 
     public boolean isDone() {

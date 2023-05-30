@@ -57,10 +57,10 @@
         android:id="@+id/editPhoneNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/checkBoxShowPassword"
+        android:layout_below="@+id/editTextPassword"
         android:layout_marginTop="0dp"
         android:hint="Phone Number"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:paddingBottom="20dp" />
 
     <EditText
@@ -70,7 +70,7 @@
         android:layout_below="@+id/editPhoneNumber"
         android:layout_marginTop="0dp"
         android:hint="Country"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:paddingBottom="20dp" />
 
     <EditText
@@ -80,7 +80,7 @@
         android:layout_below="@+id/editPhoneNumber2"
         android:layout_marginTop="0dp"
         android:hint="Region"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:paddingBottom="20dp" />
 
     <EditText
@@ -90,14 +90,14 @@
         android:layout_below="@+id/editPhoneNumber3"
         android:layout_marginTop="0dp"
         android:hint="City"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:paddingBottom="20dp" />
 
     <CheckBox
         android:id="@+id/checkBoxShowPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextPassword"
+        android:layout_below="@id/editPhoneNumber4"
         android:layout_marginTop="0dp"
         android:text="Show Password" />
 
@@ -105,7 +105,7 @@
         android:id="@+id/buttonSignUp"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_below="@+id/editPhoneNumber4"
+        android:layout_below="@+id/checkBoxShowPassword"
         android:layout_marginTop="15dp"
         android:backgroundTint="#5DAF75"
         android:text="Sign Up"

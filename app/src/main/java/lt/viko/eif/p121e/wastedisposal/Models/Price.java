@@ -1,21 +1,17 @@
 package lt.viko.eif.p121e.wastedisposal.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
-@Entity
-@Table(name = "tbl_prices")
+@Entity(tableName = "tbl_prices")
 public class Price {
-    @Id
-    @Column(name = "price_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "price_id")
     private int id;
-    @Column(name = "currency_name")
+    @ColumnInfo(name = "currency_name")
     private String currencyName;
+    @ColumnInfo(name = "price")
     private float price;
 
     public Price(String currencyName, float price) {

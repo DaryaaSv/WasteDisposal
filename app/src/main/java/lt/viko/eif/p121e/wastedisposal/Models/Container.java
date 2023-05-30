@@ -1,44 +1,42 @@
 package lt.viko.eif.p121e.wastedisposal.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 import lt.viko.eif.p121e.wastedisposal.Models.Enums.ContainerContentType;
 import lt.viko.eif.p121e.wastedisposal.Models.Enums.ContainerType;
+import lt.viko.eif.p121e.wastedisposal.Util.Converters.ContainerContentTypeConverter;
+import lt.viko.eif.p121e.wastedisposal.Util.Converters.ContainerTypeConverter;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
 
-@Entity
-@Table(name = "tbl_containers")
+@Entity(tableName = "tbl_containers", foreignKeys = {
+        @ForeignKey(entity = BranchAddress.class, parentColumns = "branch_id", childColumns = "branch_id")
+})
 public class Container {
-    @Id
-    @Column(name = "container_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "container_id")
     private int id;
-    @ManyToOne
-    @JoinColumn(name = "branch_id")
-    private BranchAddress branch;
+    @ColumnInfo(name = "branch_id")
+    private int branchId;
+    @ColumnInfo(name = "street")
     private String street;
-    @Column(name = "house_number")
+    @ColumnInfo(name = "house_number")
     private String houseNumber;
-    @Column(name = "zip_code")
+    @ColumnInfo(name = "zip_code")
     private String zipCode;
+    @ColumnInfo(name = "capacity")
     private float capacity;
-    @Column(name = "type")
-    @Enumerated(EnumType.STRING)
+    @TypeConverters(ContainerTypeConverter.class)
+    @ColumnInfo(name = "type")
     private ContainerType type;
-    @Column(name = "content_type")
-    @Enumerated(EnumType.STRING)
+    @TypeConverters(ContainerContentTypeConverter.class)
+    @ColumnInfo(name = "content_type")
     private ContainerContentType contentType;
 
-    public Container(BranchAddress branch, String street, String houseNumber, String zipCode,
-                     float capacity, ContainerType type, ContainerContentType contentType) {
-        this.branch = branch;
+    public Container(int branchId, String street, String houseNumber, String zipCode, float capacity,
+                     ContainerType type, ContainerContentType contentType) {
+        this.branchId = branchId;
         this.street = street;
         this.houseNumber = houseNumber;
         this.zipCode = zipCode;
@@ -55,12 +53,12 @@ public class Container {
         this.id = id;
     }
 
-    public BranchAddress getBranch() {
-        return branch;
+    public int getBranchId() {
+        return branchId;
     }
 
-    public void setBranch(BranchAddress branch) {
-        this.branch = branch;
+    public void setBranchId(int branchId) {
+        this.branchId = branchId;
     }
 
     public String getStreet() {

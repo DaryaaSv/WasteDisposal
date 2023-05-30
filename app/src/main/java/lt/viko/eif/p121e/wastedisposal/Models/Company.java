@@ -1,35 +1,34 @@
 package lt.viko.eif.p121e.wastedisposal.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
 
-@Entity
-@Table(name = "tbl_companies")
+@Entity(tableName = "tbl_companies", foreignKeys = {
+        @ForeignKey(entity = Administrator.class,
+                parentColumns = "administrator_id",
+                childColumns = "administrator_id",
+                onDelete = ForeignKey.CASCADE),
+        @ForeignKey(entity = Price.class,
+                parentColumns = "price_id",
+                childColumns = "price_id",
+                onDelete = ForeignKey.CASCADE)
+})
 public class Company {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "company_id")
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "company_id")
     private int id;
-    @ManyToOne
-    @JoinColumn(name = "administrator_id")
-    private Administrator administrator;
-    @Column(name = "name")
+    @ColumnInfo(name = "administrator_id")
+    private int administratorId;
     private String name;
-    @OneToMany
-    @JoinColumn(name = "price_id")
-    private Price price;
+    @ColumnInfo(name = "price_id")
+    private int priceId;
 
-    public Company(Administrator administrator, String name, Price price) {
-        this.administrator = administrator;
+    public Company(int administratorId, String name, int priceId) {
+        this.administratorId = administratorId;
         this.name = name;
-        this.price = price;
+        this.priceId = priceId;
     }
 
     public int getId() {
@@ -40,12 +39,20 @@ public class Company {
         this.id = id;
     }
 
-    public Administrator getAdministrator() {
-        return administrator;
+    public int getAdministratorId() {
+        return administratorId;
     }
 
-    public void setAdministrator(Administrator administrator) {
-        this.administrator = administrator;
+    public void setAdministratorId(int administratorId) {
+        this.administratorId = administratorId;
+    }
+
+    public int getPriceId() {
+        return priceId;
+    }
+
+    public void setPriceId(int priceId) {
+        this.priceId = priceId;
     }
 
     public String getName() {

@@ -1,31 +1,27 @@
 package lt.viko.eif.p121e.wastedisposal.Models;
 
-import javax.persistence.JoinColumn;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name = "tbl_emails")
+@Entity(tableName = "tbl_emails", foreignKeys = {
+        @ForeignKey(entity = BranchAddress.class, parentColumns = "branch_id", childColumns = "branch_id")
+})
 public class Email {
-    @Id
-    @Column(name = "email_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "email_id")
     private int id;
-    @Column(name = "email_address")
-    private String emailAddress;
-    @ManyToOne
-    @JoinColumn(name = "branch_id")
-    private BranchAddress branch;
 
-    public Email(String emailAddress, BranchAddress branch) {
+    @ColumnInfo(name = "email_address")
+    private String emailAddress;
+
+    @ColumnInfo(name = "branch_id")
+    private int branchId;
+
+    public Email(String emailAddress, int branchId) {
         this.emailAddress = emailAddress;
-        this.branch = branch;
+        this.branchId = branchId;
     }
 
     public int getId() {
@@ -44,11 +40,11 @@ public class Email {
         this.emailAddress = emailAddress;
     }
 
-    public BranchAddress getBranch() {
-        return branch;
+    public int getBranchId() {
+        return branchId;
     }
 
-    public void setBranch(BranchAddress branch) {
-        this.branch = branch;
+    public void setBranchId(int branchId) {
+        this.branchId = branchId;
     }
 }

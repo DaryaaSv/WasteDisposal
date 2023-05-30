@@ -1,39 +1,38 @@
 package lt.viko.eif.p121e.wastedisposal.Models;
 
-import javax.persistence.JoinColumn;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
 
-@Entity
-@Table(name = "tbl_branches")
+@Entity(tableName = "tbl_branches", foreignKeys = @ForeignKey(entity = Company.class,
+        parentColumns = "company_id",
+        childColumns = "company_id",
+        onDelete = ForeignKey.CASCADE))
 public class BranchAddress {
-    @Id
-    @Column(name = "branch_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "branch_id")
     private int id;
-    @ManyToOne
-    @JoinColumn(name = "company_id")
-    private Company company;
+    @ColumnInfo(name = "company_id")
+    private int companyId;
+    @ColumnInfo(name = "country")
     private String country;
+    @ColumnInfo(name = "city")
     private String city;
+    @ColumnInfo(name = "street")
     private String street;
-    @Column(name = "house_number")
+    @ColumnInfo(name = "house_number")
     private String houseNumber;
-    @Column(name = "zip_code")
+    @ColumnInfo(name = "zip_code")
     private String zipCode;
-    @Column(name = "work_time")
+    @ColumnInfo(name = "work_time")
     private String workTime;
-    @Column(name = "apartment_number")
+    @ColumnInfo(name = "apartment_number")
     private String apartmentNumber;
 
-    public BranchAddress(Company company, String country, String city, String street,
+    public BranchAddress(int companyId, String country, String city, String street,
                          String houseNumber, String zipCode, String workTime, String apartmentNumber) {
-        this.company = company;
+        this.companyId = companyId;
         this.country = country;
         this.city = city;
         this.street = street;
@@ -49,14 +48,6 @@ public class BranchAddress {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Company getCompany() {
-        return company;
-    }
-
-    public void setCompany(Company company) {
-        this.company = company;
     }
 
     public String getCountry() {
@@ -113,5 +104,13 @@ public class BranchAddress {
 
     public void setApartmentNumber(String apartmentNumber) {
         this.apartmentNumber = apartmentNumber;
+    }
+
+    public int getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(int companyId) {
+        this.companyId = companyId;
     }
 }

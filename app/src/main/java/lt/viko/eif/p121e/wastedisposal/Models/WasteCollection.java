@@ -1,43 +1,42 @@
 package lt.viko.eif.p121e.wastedisposal.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
 import lt.viko.eif.p121e.wastedisposal.Models.Enums.WasteCollectionType;
+import lt.viko.eif.p121e.wastedisposal.Util.Converters.WasteCollectionTypeConverter;
 
-@Entity
-@Table(name = "tbl_waste_collections")
+@Entity(tableName = "tbl_waste_collections", foreignKeys = {
+        @ForeignKey(entity = BranchAddress.class, parentColumns = "branch_id", childColumns = "branch_id")
+})
 public class WasteCollection {
-    @Id
-    @Column(name = "waste_collection_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "waste_collection_id")
     private int id;
+    @ColumnInfo(name = "name")
     private String name;
+    @ColumnInfo(name = "price")
     private double price;
-    @Column(name = "type")
-    @Enumerated(EnumType.STRING)
+    @ColumnInfo(name = "type")
+    @TypeConverters(WasteCollectionTypeConverter.class)
     private WasteCollectionType type;
+    @ColumnInfo(name = "measurement")
     private String measurement;
+    @ColumnInfo(name = "description")
     private String description;
-    @ManyToOne
-    @JoinColumn(name = "branch_id")
-    private BranchAddress branch;
+    @ColumnInfo(name = "branch_id")
+    private int branchId;
 
     public WasteCollection(String name, double price, WasteCollectionType type, String measurement,
-                           String description, BranchAddress branch) {
+                           String description, int branchId) {
         this.name = name;
         this.price = price;
         this.type = type;
         this.measurement = measurement;
         this.description = description;
-        this.branch = branch;
+        this.branchId = branchId;
     }
 
     public int getId() {
@@ -88,11 +87,11 @@ public class WasteCollection {
         this.description = description;
     }
 
-    public BranchAddress getBranch() {
-        return branch;
+    public int getBranchId() {
+        return branchId;
     }
 
-    public void setBranch(BranchAddress branch) {
-        this.branch = branch;
+    public void setBranchId(int branchId) {
+        this.branchId = branchId;
     }
 }
