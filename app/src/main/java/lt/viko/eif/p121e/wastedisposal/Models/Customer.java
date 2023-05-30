@@ -2,8 +2,12 @@ package lt.viko.eif.p121e.wastedisposal.Models;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
-@Entity(tableName = "tbl_customers")
+@Entity(tableName = "tbl_customers", foreignKeys = {
+        @ForeignKey(entity = Address.class,
+                parentColumns = "address_id", childColumns = "address_id", onDelete = ForeignKey.CASCADE)
+})
 public class Customer {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "customer_id")
@@ -18,13 +22,17 @@ public class Customer {
     private String username;
     @ColumnInfo(name = "password")
     private String password;
+    @ColumnInfo(name = "address_id")
+    private int addressId;
 
-    public Customer(String name, String phoneNumber, String email, String username, String password) {
+    public Customer(String name, String phoneNumber, String email, String username, String password,
+                    int addressId) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.username = username;
         this.password = password;
+        this.addressId = addressId;
     }
 
     public int getId() {
@@ -73,5 +81,13 @@ public class Customer {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(int addressId) {
+        this.addressId = addressId;
     }
 }

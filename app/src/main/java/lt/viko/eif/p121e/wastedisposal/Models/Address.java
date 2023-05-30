@@ -15,24 +15,11 @@ public class Address {
     private String region;
     @ColumnInfo(name = "city")
     private String city;
-    @ColumnInfo(name = "zip_code")
-    private String zipCode;
-    @ColumnInfo(name = "street_name")
-    private String streetName;
-    @ColumnInfo(name = "street_number")
-    private String streetNumber;
-    @ColumnInfo(name = "apartment_number")
-    private String apartmentNumber;
 
-    public Address(String country, String region, String city, String zipCode, String streetName,
-                   String streetNumber, String apartmentNumber) {
+    public Address(String country, String region, String city) {
         this.country = country;
         this.region = region;
         this.city = city;
-        this.zipCode = zipCode;
-        this.streetName = streetName;
-        this.streetNumber = streetNumber;
-        this.apartmentNumber = apartmentNumber;
     }
 
     public int getId() {
@@ -67,35 +54,4 @@ public class Address {
         this.city = city;
     }
 
-    public String getZipCode() {
-        return zipCode;
-    }
-
-    public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
-    }
-
-    public String getStreetName() {
-        return streetName;
-    }
-
-    public void setStreetName(String streetName) {
-        this.streetName = streetName;
-    }
-
-    public String getStreetNumber() {
-        return streetNumber;
-    }
-
-    public void setStreetNumber(String streetNumber) {
-        this.streetNumber = streetNumber;
-    }
-
-    public String getApartmentNumber() {
-        return apartmentNumber;
-    }
-
-    public void setApartmentNumber(String apartmentNumber) {
-        this.apartmentNumber = apartmentNumber;
-    }
 }
