@@ -1,9 +1,8 @@
-package lt.viko.eif.p121e.wastedisposal.Models;
+package lt.viko.eif.p121e.wastedisposal.Models1;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-
 @Entity(tableName = "tbl_customers")
 public class Customer {
     @PrimaryKey(autoGenerate = true)

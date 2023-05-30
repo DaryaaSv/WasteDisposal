@@ -1,4 +1,4 @@
-package lt.viko.eif.p121e.wastedisposal.Models;
+package lt.viko.eif.p121e.wastedisposal.Models1;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -21,14 +21,18 @@ public class Address {
     private String streetName;
     @ColumnInfo(name = "street_number")
     private String streetNumber;
+    @ColumnInfo(name = "apartment_number")
+    private String apartmentNumber;
 
-    public Address(String country, String region, String city, String zipCode, String streetName, String streetNumber) {
+    public Address(String country, String region, String city, String zipCode, String streetName,
+                   String streetNumber, String apartmentNumber) {
         this.country = country;
         this.region = region;
         this.city = city;
         this.zipCode = zipCode;
         this.streetName = streetName;
         this.streetNumber = streetNumber;
+        this.apartmentNumber = apartmentNumber;
     }
 
     public int getId() {
@@ -85,5 +89,13 @@ public class Address {
 
     public void setStreetNumber(String streetNumber) {
         this.streetNumber = streetNumber;
+    }
+
+    public String getApartmentNumber() {
+        return apartmentNumber;
+    }
+
+    public void setApartmentNumber(String apartmentNumber) {
+        this.apartmentNumber = apartmentNumber;
     }
 }
