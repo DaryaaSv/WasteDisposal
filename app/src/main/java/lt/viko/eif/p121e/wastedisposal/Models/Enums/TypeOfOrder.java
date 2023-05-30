@@ -1,4 +1,4 @@
-package lt.viko.eif.p121e.wastedisposal.Models1.Enums;
+package lt.viko.eif.p121e.wastedisposal.Models.Enums;
 
 public enum TypeOfOrder {
     PURCHASE("Purchase"),

@@ -2,28 +2,23 @@ package lt.viko.eif.p121e.wastedisposal.Models;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
 
-@Entity(tableName = "tbl_services", foreignKeys = {
-        @ForeignKey(entity = Order.class, parentColumns = "order_id", childColumns = "order_id"),
-        @ForeignKey(entity = WasteCollection.class, parentColumns = "waste_collection_id",
-                childColumns = "waste_collection_id")
-})
+import lt.viko.eif.p121e.wastedisposal.Models.Enums.ServiceType;
+import lt.viko.eif.p121e.wastedisposal.Util.Converters.ServiceTypeConverter;
+
+@Entity(tableName = "tbl_service")
 public class Service {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "service_id")
     private int id;
+    @TypeConverters(ServiceTypeConverter.class)
+    @ColumnInfo(name = "type")
+    private ServiceType type;
 
-    @ColumnInfo(name = "order_id")
-    private int orderId;
-
-    @ColumnInfo(name = "waste_collection_id")
-    private int wasteCollectionId;
-
-    public Service(int orderId, int wasteCollectionId) {
-        this.orderId = orderId;
-        this.wasteCollectionId = wasteCollectionId;
+    public Service(ServiceType type) {
+        this.type = type;
     }
 
     public int getId() {
@@ -34,19 +29,11 @@ public class Service {
         this.id = id;
     }
 
-    public int getOrderId() {
-        return orderId;
+    public ServiceType getType() {
+        return type;
     }
 
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
-    }
-
-    public int getWasteCollectionId() {
-        return wasteCollectionId;
-    }
-
-    public void setWasteCollectionId(int wasteCollectionId) {
-        this.wasteCollectionId = wasteCollectionId;
+    public void setType(ServiceType type) {
+        this.type = type;
     }
 }

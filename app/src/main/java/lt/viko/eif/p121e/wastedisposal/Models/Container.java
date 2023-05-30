@@ -1,7 +1,7 @@
-package lt.viko.eif.p121e.wastedisposal.Models1;
+package lt.viko.eif.p121e.wastedisposal.Models;
 
-import lt.viko.eif.p121e.wastedisposal.Models1.Enums.ContainerContentType;
-import lt.viko.eif.p121e.wastedisposal.Models1.Enums.ContainerType;
+import lt.viko.eif.p121e.wastedisposal.Models.Enums.ContainerContentType;
+import lt.viko.eif.p121e.wastedisposal.Models.Enums.ContainerType;
 import lt.viko.eif.p121e.wastedisposal.Util.Converters.ContainerContentTypeConverter;
 import lt.viko.eif.p121e.wastedisposal.Util.Converters.ContainerTypeConverter;
 import androidx.room.ColumnInfo;

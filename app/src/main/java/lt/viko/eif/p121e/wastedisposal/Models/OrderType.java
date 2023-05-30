@@ -1,11 +1,11 @@
-package lt.viko.eif.p121e.wastedisposal.Models1;
+package lt.viko.eif.p121e.wastedisposal.Models;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
-import lt.viko.eif.p121e.wastedisposal.Models1.Enums.TypeOfOrder;
+import lt.viko.eif.p121e.wastedisposal.Models.Enums.TypeOfOrder;
 import lt.viko.eif.p121e.wastedisposal.Util.Converters.OrderTypeConverter;
 
 @Entity(tableName = "tbl_order_type")
