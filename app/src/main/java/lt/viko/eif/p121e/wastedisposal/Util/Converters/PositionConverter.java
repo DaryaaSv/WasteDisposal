@@ -8,7 +8,6 @@ public class PositionConverter {
     public static Position fromString(String value) {
         return Position.valueOf(value);
     }
-
     @TypeConverter
     public static String toString(Position position) {
         return position.name();

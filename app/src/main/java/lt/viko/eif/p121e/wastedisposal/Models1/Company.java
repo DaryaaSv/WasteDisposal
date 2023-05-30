@@ -1,4 +1,4 @@
-package lt.viko.eif.p121e.wastedisposal.Models;
+package lt.viko.eif.p121e.wastedisposal.Models1;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -10,9 +10,9 @@ import androidx.room.PrimaryKey;
                 parentColumns = "administrator_id",
                 childColumns = "administrator_id",
                 onDelete = ForeignKey.CASCADE),
-        @ForeignKey(entity = Price.class,
-                parentColumns = "price_id",
-                childColumns = "price_id",
+        @ForeignKey(entity = Currency.class,
+                parentColumns = "currency_id",
+                childColumns = "currency_id",
                 onDelete = ForeignKey.CASCADE)
 })
 public class Company {
@@ -21,14 +21,15 @@ public class Company {
     private int id;
     @ColumnInfo(name = "administrator_id")
     private int administratorId;
+    @ColumnInfo(name = "name")
     private String name;
-    @ColumnInfo(name = "price_id")
-    private int priceId;
+    @ColumnInfo(name = "currency_id")
+    private int currencyId;
 
-    public Company(int administratorId, String name, int priceId) {
+    public Company(int administratorId, String name, int currencyId) {
         this.administratorId = administratorId;
         this.name = name;
-        this.priceId = priceId;
+        this.currencyId = currencyId;
     }
 
     public int getId() {
@@ -47,12 +48,12 @@ public class Company {
         this.administratorId = administratorId;
     }
 
-    public int getPriceId() {
-        return priceId;
+    public int getCurrencyId() {
+        return currencyId;
     }
 
-    public void setPriceId(int priceId) {
-        this.priceId = priceId;
+    public void setCurrencyId(int currencyId) {
+        this.currencyId = currencyId;
     }
 
     public String getName() {
