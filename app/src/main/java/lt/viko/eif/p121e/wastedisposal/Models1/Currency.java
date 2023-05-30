@@ -1,21 +1,24 @@
-package lt.viko.eif.p121e.wastedisposal.Models;
+package lt.viko.eif.p121e.wastedisposal.Models1;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "tbl_prices")
-public class Price {
+@Entity(tableName = "tbl_currencies")
+public class Currency {
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "price_id")
+    @ColumnInfo(name = "currency_id")
     private int id;
     @ColumnInfo(name = "currency_name")
     private String currencyName;
+    @ColumnInfo(name = "currency_code")
+    private String currencyCode;
     @ColumnInfo(name = "price")
     private float price;
 
-    public Price(String currencyName, float price) {
+    public Currency(String currencyName, String currencyCode, float price) {
         this.currencyName = currencyName;
+        this.currencyCode = currencyCode;
         this.price = price;
     }
 
@@ -33,6 +36,14 @@ public class Price {
 
     public void setCurrencyName(String currencyName) {
         this.currencyName = currencyName;
+    }
+
+    public String getCurrencyCode() {
+        return currencyCode;
+    }
+
+    public void setCurrencyCode(String currencyCode) {
+        this.currencyCode = currencyCode;
     }
 
     public float getPrice() {
