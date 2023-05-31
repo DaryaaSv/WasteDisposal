@@ -24,7 +24,10 @@ public interface AddressDAO {
 
     @Query("SELECT * FROM tbl_addresses")
     List<Address> getAllAddresses();
+    @Query("SELECT * FROM tbl_addresses WHERE address_id = :address_id")
+    Address getAddressById(int address_id);
 
     @Query("SELECT * FROM tbl_addresses WHERE country = :country AND region = :region AND city = :city")
     Address getAddressByProperties(String country, String region, String city);
+
 }

@@ -24,7 +24,6 @@ public interface CustomerDAO {
 
     @Query("SELECT * FROM tbl_customers")
     List<Customer> getAllCustomers();
-
     @Query("SELECT * FROM tbl_customers WHERE customer_id = :customerId")
     Customer getCustomerById(int customerId);
 
