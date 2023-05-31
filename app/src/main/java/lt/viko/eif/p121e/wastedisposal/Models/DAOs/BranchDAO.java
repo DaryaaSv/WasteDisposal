@@ -1,4 +1,4 @@
-package lt.viko.eif.p121e.wastedisposal.Util.DAOs;
+package lt.viko.eif.p121e.wastedisposal.Models.DAOs;
 
 import androidx.room.Dao;
 import androidx.room.Delete;

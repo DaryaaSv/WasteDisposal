@@ -1,4 +1,4 @@
-package lt.viko.eif.p121e.wastedisposal.Util.DAOs;
+package lt.viko.eif.p121e.wastedisposal.Models.DAOs;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -27,4 +27,7 @@ public interface EmployeeDAO {
 
     @Query("SELECT * FROM tbl_employees WHERE employee_id = :id")
     Employee getEmployeeById(int id);
+
+    @Query("SELECT * FROM tbl_employees WHERE username = :username")
+    Employee getEmployeeByUsername(String username);
 }

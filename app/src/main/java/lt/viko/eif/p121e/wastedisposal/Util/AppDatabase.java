@@ -5,9 +5,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import lt.viko.eif.p121e.wastedisposal.Models.*;
-import lt.viko.eif.p121e.wastedisposal.Util.DAOs.AddressDAO;
-import lt.viko.eif.p121e.wastedisposal.Util.DAOs.AdministratorDAO;
-import lt.viko.eif.p121e.wastedisposal.Util.DAOs.CustomerDAO;
+import lt.viko.eif.p121e.wastedisposal.Models.DAOs.*;
 
 @Database(entities = {Address.class, Administrator.class, Branch.class,
         BranchBuyingIn.class, BranchContainer.class, BranchCustomerMilestone.class,
@@ -18,11 +16,34 @@ import lt.viko.eif.p121e.wastedisposal.Util.DAOs.CustomerDAO;
         Recycling.class, Service.class, Truck.class
         }, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
-
-    public abstract CustomerDAO customerDao();
     public abstract AddressDAO addressDAO();
     public abstract AdministratorDAO administratorDAO();
-
+    public abstract BranchDAO branchDAO();
+    public abstract BranchBuyingInDAO branchBuyingInDAO();
+    public abstract BranchContainerDAO branchContainerDAO();
+    public abstract BranchCustomerMilestoneDAO branchCustomerMilestoneDAO();
+    public abstract BranchEmployeeDAO branchEmployeeDAO();
+    public abstract BranchMilestoneDAO branchMilestoneDAO();
+    public abstract BranchTruckDAO branchTruckDAO();
+    public abstract BuyingInDAO buyingInDAO();
+    public abstract CommentDAO commentDAO();
+    public abstract CompanyDAO companyDAO();
+    public abstract ContainerDAO containerDAO();
+    public abstract CurrencyDAO currencyDAO();
+    public abstract CustomerDAO customerDAO();
+    public abstract CustomerCommentDAO commentCustomerDAO();
+    public abstract CustomerMilestoneDAO customerMilestoneDAO();
+    public abstract EmailDAO emailDAO();
+    public abstract EmployeeDAO employeeDAO();
+    public abstract MaterialDAO materialDAO();
+    public abstract MaterialTypeDAO materialTypeDAO();
+    public abstract MilestoneDAO milestoneDAO();
+    public abstract OrderDAO orderDAO();
+    public abstract OrderTypeDAO orderTypeDAO();
+    public abstract PhoneDAO phoneDAO();
+    public abstract RecyclingDAO recyclingDAO();
+    public abstract ServiceDAO serviceDAO();
+    public abstract TruckDAO truckDAO();
     private static final String DB_NAME = "app_database";
     private static AppDatabase instance;
 

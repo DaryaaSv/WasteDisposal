@@ -10,9 +10,9 @@ import java.util.Date;
 
 import lt.viko.eif.p121e.wastedisposal.Util.Converters.DateTypeConverter;
 
-@Entity(tableName = "tbl_branch_containers", foreignKeys = {
+@Entity(tableName = "tbl_orders", foreignKeys = {
         @ForeignKey(entity = Customer.class, parentColumns = "customer_id",
-                childColumns = "container_id", onDelete = ForeignKey.CASCADE),
+                childColumns = "customer_id", onDelete = ForeignKey.CASCADE),
         @ForeignKey(entity = Branch.class, parentColumns = "branch_id",
                 childColumns = "branch_id", onDelete = ForeignKey.CASCADE),
         @ForeignKey(entity = OrderType.class, parentColumns = "order_type_id",

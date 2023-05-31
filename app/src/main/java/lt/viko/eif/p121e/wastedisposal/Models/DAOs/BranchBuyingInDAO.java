@@ -1,4 +1,4 @@
-package lt.viko.eif.p121e.wastedisposal.Util.DAOs;
+package lt.viko.eif.p121e.wastedisposal.Models.DAOs;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -22,9 +22,9 @@ public interface BranchBuyingInDAO {
     @Delete
     void delete(BranchBuyingIn branchBuyingIn);
 
-    @Query("SELECT * FROM tbl_branch_containers")
+    @Query("SELECT * FROM tbl_branch_buying_in")
     List<BranchBuyingIn> getAllBranchBuyingIn();
 
-    @Query("SELECT * FROM tbl_branch_containers WHERE branch_buying_in_id = :branchBuyingInId")
+    @Query("SELECT * FROM tbl_branch_buying_in WHERE branch_buying_in_id = :branchBuyingInId")
     BranchBuyingIn getBranchBuyingInById(int branchBuyingInId);
 }

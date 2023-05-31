@@ -1,4 +1,4 @@
-package lt.viko.eif.p121e.wastedisposal.Util.DAOs;
+package lt.viko.eif.p121e.wastedisposal.Models.DAOs;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -22,9 +22,9 @@ public interface BranchEmployeeDAO {
     @Delete
     void delete(BranchEmployee branchEmployee);
 
-    @Query("SELECT * FROM tbl_branch_containers")
+    @Query("SELECT * FROM tbl_branch_employees")
     List<BranchEmployee> getAllBranchEmployees();
 
-    @Query("SELECT * FROM tbl_branch_containers WHERE branch_employee_id = :branchEmployeeId")
+    @Query("SELECT * FROM tbl_branch_employees WHERE branch_employee_id = :branchEmployeeId")
     BranchEmployee getBranchEmployeeById(int branchEmployeeId);
 }

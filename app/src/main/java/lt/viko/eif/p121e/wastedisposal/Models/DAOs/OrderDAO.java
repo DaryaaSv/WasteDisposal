@@ -1,4 +1,4 @@
-package lt.viko.eif.p121e.wastedisposal.Util.DAOs;
+package lt.viko.eif.p121e.wastedisposal.Models.DAOs;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -22,24 +22,24 @@ public interface OrderDAO {
     @Delete
     void delete(Order order);
 
-    @Query("SELECT * FROM tbl_branch_containers WHERE order_id = :orderId")
+    @Query("SELECT * FROM tbl_orders WHERE order_id = :orderId")
     Order getOrderById(int orderId);
 
-    @Query("SELECT * FROM tbl_branch_containers")
+    @Query("SELECT * FROM tbl_orders")
     List<Order> getAllOrders();
 
-    @Query("SELECT * FROM tbl_branch_containers WHERE is_done = 1")
+    @Query("SELECT * FROM tbl_orders WHERE is_done = 1")
     List<Order> getCompletedOrders();
 
-    @Query("SELECT * FROM tbl_branch_containers WHERE branch_id = :branchId")
+    @Query("SELECT * FROM tbl_orders WHERE branch_id = :branchId")
     List<Order> getOrdersByBranchId(int branchId);
 
-    @Query("SELECT * FROM tbl_branch_containers WHERE customer_id = :customerId")
+    @Query("SELECT * FROM tbl_orders WHERE customer_id = :customerId")
     List<Order> getOrdersByCustomerId(String customerId);
 
-    @Query("SELECT COUNT(*) FROM tbl_branch_containers")
+    @Query("SELECT COUNT(*) FROM tbl_orders")
     int getOrderCount();
 
-    @Query("DELETE FROM tbl_branch_containers")
+    @Query("DELETE FROM tbl_orders")
     void deleteAllOrders();
 }

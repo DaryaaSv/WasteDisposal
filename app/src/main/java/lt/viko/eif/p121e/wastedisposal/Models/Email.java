@@ -43,6 +43,14 @@ public class Email {
         return branchId;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public void setBranchId(int branchId) {
         this.branchId = branchId;
     }

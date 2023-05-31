@@ -1,4 +1,4 @@
-package lt.viko.eif.p121e.wastedisposal.Util.DAOs;
+package lt.viko.eif.p121e.wastedisposal.Models.DAOs;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -24,4 +24,7 @@ public interface AddressDAO {
 
     @Query("SELECT * FROM tbl_addresses")
     List<Address> getAllAddresses();
+
+    @Query("SELECT * FROM tbl_addresses WHERE country = :country AND region = :region AND city = :city")
+    Address getAddressByProperties(String country, String region, String city);
 }

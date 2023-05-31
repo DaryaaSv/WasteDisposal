@@ -5,7 +5,7 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "tbl_branch_milestone", foreignKeys = {
+@Entity(tableName = "tbl_branch_milestones", foreignKeys = {
         @ForeignKey(entity = Branch.class, parentColumns = "branch_id",
                 childColumns = "branch_id", onDelete = ForeignKey.CASCADE),
         @ForeignKey(entity = Milestone.class, parentColumns = "milestone_id",

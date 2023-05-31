@@ -1,4 +1,4 @@
-package lt.viko.eif.p121e.wastedisposal.Util.DAOs;
+package lt.viko.eif.p121e.wastedisposal.Models.DAOs;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -22,9 +22,9 @@ public interface BranchMilestoneDAO {
     @Delete
     void delete(BranchMilestone branchMilestone);
 
-    @Query("SELECT * FROM tbl_branch_milestone")
+    @Query("SELECT * FROM tbl_branch_milestones")
     List<BranchMilestone> getAllBranchMilestones();
 
-    @Query("SELECT * FROM tbl_branch_milestone WHERE branch_milestone_id = :branchMilestoneId")
+    @Query("SELECT * FROM tbl_branch_milestones WHERE branch_milestone_id = :branchMilestoneId")
     BranchMilestone getBranchMilestoneById(int branchMilestoneId);
 }
