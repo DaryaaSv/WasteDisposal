@@ -22,9 +22,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.SignUpActivity" />
-        <activity android:name=".Activities.CustomerLandingActivity" />
-        <activity android:name=".Activities.AdministratorLandingActivity" />
-        <activity android:name=".Activities.EmployeeLandingActivity" />
+        <activity android:name=".Activities.Customer.CustomerLandingActivity" />
+        <activity android:name=".Activities.Customer.CustomerMilestonesActivity" />
+        <activity android:name=".Activities.Customer.CustomerOrdersActivity" />
+        <activity android:name=".Activities.Customer.CustomerSettingsActivity" />
+        <activity android:name=".Activities.Customer.CustomerBuyingInActivity" />
+        <activity android:name=".Activities.Customer.CustomerRecycleActivity" />
     </application>
 
 </manifest>

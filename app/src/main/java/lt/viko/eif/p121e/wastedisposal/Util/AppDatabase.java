@@ -14,7 +14,7 @@ import lt.viko.eif.p121e.wastedisposal.Models.DAOs.*;
         CustomerComment.class, CustomerMilestone.class, Email.class, Employee.class, Material.class,
         MaterialType.class, Milestone.class, Order.class, OrderType.class, Phone.class,
         Recycling.class, Service.class, Truck.class
-        }, version = 1)
+        }, version = 2)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract AddressDAO addressDAO();
     public abstract AdministratorDAO administratorDAO();

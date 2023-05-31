@@ -31,16 +31,16 @@ import lt.viko.eif.p121e.wastedisposal.Util.Converters.DateTypeConverter;
     @ColumnInfo(name = "order_date")
     private Date orderDate;
     @ColumnInfo(name = "customer_id")
-    private String customerId;
+    private int customerId;
     @ColumnInfo(name = "branch_id")
     private int branchId;
     @ColumnInfo(name = "order_type_id")
-    private String orderTypeId;
+    private int orderTypeId;
     @ColumnInfo(name = "service_id")
-    private String serviceId;
+    private int serviceId;
 
-    public Order(boolean isDone, String customerNote, Date orderDate, String customerId,
-                 int branchId, String orderTypeId, String serviceId) {
+    public Order(boolean isDone, String customerNote, Date orderDate, int customerId, int branchId,
+                 int orderTypeId, int serviceId) {
         this.isDone = isDone;
         this.customerNote = customerNote;
         this.orderDate = orderDate;
@@ -82,14 +82,6 @@ import lt.viko.eif.p121e.wastedisposal.Util.Converters.DateTypeConverter;
         this.orderDate = orderDate;
     }
 
-    public String getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
-    }
-
     public int getBranchId() {
         return branchId;
     }
@@ -98,19 +90,27 @@ import lt.viko.eif.p121e.wastedisposal.Util.Converters.DateTypeConverter;
         this.branchId = branchId;
     }
 
-    public String getOrderTypeId() {
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    public int getOrderTypeId() {
         return orderTypeId;
     }
 
-    public void setOrderTypeId(String orderTypeId) {
+    public void setOrderTypeId(int orderTypeId) {
         this.orderTypeId = orderTypeId;
     }
 
-    public String getServiceId() {
+    public int getServiceId() {
         return serviceId;
     }
 
-    public void setServiceId(String serviceId) {
+    public void setServiceId(int serviceId) {
         this.serviceId = serviceId;
     }
 }

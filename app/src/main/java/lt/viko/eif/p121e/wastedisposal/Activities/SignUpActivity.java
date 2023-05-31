@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import lt.viko.eif.p121e.wastedisposal.Activities.Customer.CustomerLandingActivity;
 import lt.viko.eif.p121e.wastedisposal.Models.Address;
 import lt.viko.eif.p121e.wastedisposal.Models.Customer;
 import lt.viko.eif.p121e.wastedisposal.Models.DAOs.AddressDAO;
@@ -34,6 +35,7 @@ public class SignUpActivity extends AppCompatActivity {
     private TextView textViewBackToLogin;
     private AppDatabase appDatabase;
     private Intent intent;
+    private int userID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,10 +95,14 @@ public class SignUpActivity extends AppCompatActivity {
 
                     Customer customer = new Customer(name, phoneNumber, email, username, password, addressId);
                     customerDao.insert(customer);
+
+                    userID = customerDao.getCustomerByUsername(username).getId();
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             Toast.makeText(SignUpActivity.this, "Account created successfully", Toast.LENGTH_SHORT).show();
+                            intent = new Intent(SignUpActivity.this, CustomerLandingActivity.class);
+                            intent.putExtra("id", userID);
                             startActivity(intent);
                         }
                     });

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- order_item_layout.xml -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <!-- Order ID -->
+    <TextView
+        android:id="@+id/text_order_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="Order ID: " />
+
+    <!-- Is Done -->
+    <TextView
+        android:id="@+id/text_is_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="Is Done: " />
+
+    <!-- Customer Note -->
+    <TextView
+        android:id="@+id/text_customer_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="Customer Note: " />
+
+    <!-- Order Date -->
+    <TextView
+        android:id="@+id/text_order_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="Order Date: " />
+
+    <!-- Customer ID -->
+    <TextView
+        android:id="@+id/text_customer_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="Customer ID: " />
+
+    <!-- Branch ID -->
+    <TextView
+        android:id="@+id/text_branch_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="Branch ID: " />
+
+    <!-- Order Type ID -->
+    <TextView
+        android:id="@+id/text_order_type_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="Order Type ID: " />
+
+    <!-- Service ID -->
+    <TextView
+        android:id="@+id/text_service_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="Service ID: " />
+
+</LinearLayout>
